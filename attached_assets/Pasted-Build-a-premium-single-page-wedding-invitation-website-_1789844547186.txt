@@ -1,0 +1,38 @@
+Build a premium, single-page wedding invitation website. Modern, minimal, creative design — generous white space, elegant serif display font for names (e.g. "Cormorant Garamond" or "Playfair Display") paired with a clean sans-serif for body text, subtle scroll-in animations (fade/slide, no gimmicks), fully responsive (mobile-first, since most guests will open it from a phone). Language: English only.
+
+TECH STACK
+- Next.js (App Router) + TypeScript + Tailwind CSS
+- Deployable as a static/SSR app on Vercel with zero config changes
+- RSVP form submissions handled via a Next.js API route (app/api/rsvp/route.ts) that sends the data to boody172@gmail.com using Resend (or a simple SMTP integration) — fallback to logging to a JSON file if no email service key is provided, but structure the code so adding a RESEND_API_KEY env var makes it work immediately
+- All secrets/env vars referenced via process.env, with a .env.example file listing them
+
+SECTIONS (in order)
+1. Hero — full-viewport section with a soft background image or elegant gradient, the couple's names "Ahmed & Hend" in large display type, the wedding date "March 2, 2026", and a subtle scroll-down cue.
+2. Countdown — live countdown timer (days/hours/minutes/seconds) to March 2, 2026, 7:30 PM, minimal card-style digits.
+3. Quranic verse block — centered, elegant typographic treatment (right-to-left styling for the Arabic line even though the rest of the site is English) for:
+   Arabic: "رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا"
+   English translation: "Our Lord, grant us from among our wives and offspring comfort to our eyes and make us an example for the righteous."
+   Reference: "Surah Al-Furqan, 25:74"
+4. Event Details — a single elegant card for the Wedding Reception ("Farah"): Date March 2, 2026, Time 7:30 PM, Venue "Manial Palace (Qasr Mohamed Ali), Cairo, Egypt".
+5. Location — embedded Google Map (iframe/link) for the venue using this link: https://share.google/AcwNzJrcNhmsW3TJE, plus a "Get Directions" button linking to the same URL.
+6. Gallery — responsive grid gallery for exactly 3 photos, lightbox on click. Use placeholder images for now at /public/gallery/photo-1.jpg, photo-2.jpg, photo-3.jpg, so I can swap them in later.
+7. RSVP Form — fields: Full Name, Number of Guests, Attending? (Yes, I'll be there / Sorry, can't make it), Email or Phone, Message to the couple (optional). On submit:
+   - If "Attending" is selected, show an interactive success state with a warm message like "We can't wait to celebrate with you, {name}! See you on March 2nd."
+   - If "Can't make it" is selected, show a different warm message like "We're sorry you can't make it, {name} — you'll be with us in spirit. Thank you for letting us know."
+   Validate required fields client-side, and only reveal this personalized confirmation screen AFTER the guest submits their RSVP answer (not before).
+8. Footer — couple's monogram "A & H", and a closing line: "We can't wait to celebrate this day with you."
+
+BACKGROUND MUSIC
+Add a small, unobtrusive floating music toggle button (bottom corner) that autoplays a calm, gentle instrumental piano/strings track on first user interaction (respect browser autoplay policies — start muted, unmute on first click) using an <audio> tag pointing to /public/audio/soft-piano-ambient.mp3 (placeholder file — I'll swap in the real track). Include a mute/unmute icon toggle.
+
+COLOR PALETTE
+Refined ivory/champagne + charcoal palette (soft neutrals, one warm gold accent for buttons/countdown cards) — typical of a modern minimal wedding site.
+
+DEPLOYMENT (do this after the site is built and working locally in Replit)
+1. Initialize a git repo if not already one, commit everything.
+2. Push the repo to this existing GitHub repo: https://github.com/boody172/Ahmed-Hend-WeddingInvites
+3. From this Claude Code session, run `vercel` (or use the Vercel MCP/CLI) to link and deploy the project to Vercel under the project name "Ahmed-Hend-WeddingInvites".
+4. Set the environment variables from .env.example in the Vercel project settings.
+5. Confirm the live deployment URL back to me and do a final check that: the countdown works, the RSVP form submits and shows the correct interactive confirmation message, the map loads, and the site looks correct on mobile.
+
+Do not invent or change any of the names, date, venue, or Quranic verse above — use them exactly as given.

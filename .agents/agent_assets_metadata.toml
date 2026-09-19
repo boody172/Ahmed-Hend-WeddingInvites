@@ -1,0 +1,9 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "M58FRg0hL1sRFlWZ27jVN"
+uri = "file://artifacts/ahmed-hend-wedding-video/public/audio/bg_music.mp3"
+type = "audio"
+title = "wedding invitation background music"
+description = "Generated music: Cinematic minimal piano and warm chamber strings instrumental background music scoring an elegant Egyptian wedding invitation. 72 BPM, intimate, graceful, romantic, and restrained. P…"

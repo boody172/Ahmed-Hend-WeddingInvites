@@ -1,0 +1,107 @@
+openapi: 3.1.0
+info:
+  # Do not change the title, if the title changes, the import paths will be broken
+  title: Api
+  version: 0.1.0
+  description: API specification
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: rsvp
+    description: Wedding invitation RSVP operations
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      description: Returns server health status
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+  /rsvp:
+    post:
+      operationId: submitRsvp
+      tags: [rsvp]
+      summary: Submit a wedding RSVP
+      description: Records a guest response and forwards it to the couple when email delivery is configured.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RsvpInput"
+      responses:
+        "201":
+          description: RSVP received
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RsvpReceipt"
+        "400":
+          description: Invalid RSVP
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+components:
+  schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required:
+        - status
+    RsvpInput:
+      type: object
+      properties:
+        fullName:
+          type: string
+          minLength: 1
+        guestCount:
+          type: integer
+          minimum: 1
+          maximum: 20
+        attendance:
+          type: string
+          enum: [attending, unable]
+        contact:
+          type: string
+          minLength: 1
+        message:
+          type: string
+          maxLength: 1000
+      required:
+        - fullName
+        - guestCount
+        - attendance
+        - contact
+    RsvpReceipt:
+      type: object
+      properties:
+        received:
+          type: boolean
+        fullName:
+          type: string
+        attendance:
+          type: string
+          enum: [attending, unable]
+      required:
+        - received
+        - fullName
+        - attendance
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+      required:
+        - error
