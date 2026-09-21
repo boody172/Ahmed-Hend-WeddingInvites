@@ -67,7 +67,7 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
         />
         <motion.p variants={item} className="text-2xl md:text-3xl text-foreground/80 font-serif italic tracking-wide">
-          March 2, 2026
+          March 2, 2027
         </motion.p>
       </motion.div>
 

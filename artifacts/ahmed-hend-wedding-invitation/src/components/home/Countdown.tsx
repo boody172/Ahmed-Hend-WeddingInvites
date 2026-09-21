@@ -9,7 +9,7 @@ interface TimeLeft {
   seconds: number;
 }
 
-const TARGET_DATE = new Date('2026-03-02T19:30:00+02:00').getTime();
+const TARGET_DATE = new Date('2027-03-02T19:30:00+02:00').getTime();
 
 function getTimeLeft(): TimeLeft {
   const difference = TARGET_DATE - Date.now();
@@ -105,7 +105,7 @@ export function Countdown() {
               animate={isTicking && index === 3 ? { scale: [1, 1.04, 1] } : {}}
               transition={{ duration: 0.4 }}
             >
-              <div className="relative w-20 h-24 md:w-28 md:h-32 bg-background border border-border/60 shadow-sm overflow-hidden">
+              <div className="relative w-24 h-24 md:w-28 md:h-32 bg-background border border-border/60 shadow-sm overflow-hidden px-1">
                 <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-border/40 z-10" />
                 <FlipDigit value={value.toString().padStart(2, '0')} />
               </div>

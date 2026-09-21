@@ -62,7 +62,7 @@ export function RsvpForm() {
       <FadeIn className="max-w-xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-4">RSVP</h2>
-          <p className="font-sans text-sm text-muted-foreground uppercase tracking-widest">Kindly respond by February 2, 2026</p>
+          <p className="font-sans text-sm text-muted-foreground uppercase tracking-widest">Kindly respond by February 2, 2027</p>
         </div>
 
         {successState ? (

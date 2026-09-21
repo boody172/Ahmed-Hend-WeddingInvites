@@ -16,7 +16,7 @@ export function EventDetails() {
         <div className="space-y-12">
           <div>
             <h3 className="font-sans text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-3">When</h3>
-            <p className="font-serif text-2xl md:text-3xl text-foreground">March 2, 2026</p>
+            <p className="font-serif text-2xl md:text-3xl text-foreground">March 2, 2027</p>
             <p className="font-serif text-xl text-foreground/80 italic mt-2">7:30 PM</p>
           </div>
 
