@@ -3,9 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { FadeIn } from './FadeIn';
 
-import photo1 from '@assets/1_1789844562554.jfif';
-import photo2 from '@assets/2_1789844562554.jfif';
-import photo3 from '@assets/3_1789844562555.jfif';
+import photo1 from '@assets/couple-1.jpg';
+import photo2 from '@assets/couple-2.jpg';
+import photo3 from '@assets/couple-3.jpg';
 
 const photos = [
   { src: photo1, alt: "Ahmed and Hend couple photo 1" },
